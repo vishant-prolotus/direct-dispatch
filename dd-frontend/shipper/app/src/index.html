@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="dd.shipper">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<base href="/shipper/app/">
+	<title>{{pageTitle}} - Direct Dispatch</title>
+	<meta name="description" content="{{pageDescription}}">
+	@@include('./includes/head.html')
+</head>
+
+<body>
+
+	@@include('./includes/header-app.html')
+
+	<div class="main" ng-view></div>
+
+	@@include('./includes/footer-app.html')
+	
+	@@include('./includes/scripts.html')
+
+	<!-- Libraries -->
+	<link href="/core/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<script src="/core/bower_components/lodash/dist/lodash.min.js"></script>
+	<script src="/core/bower_components/angular/angular.min.js"></script>
+	<script src="/core/bower_components/angular-route/angular-route.min.js"></script>
+	<script src="/core/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+
+	<link href="/core/bower_components/angular-ui-select/dist/select.min.css" rel="stylesheet">
+	<script src="/core/bower_components/angular-ui-select/dist/select.min.js"></script>
+	<link href="/core/ui-select-fix.css" rel="stylesheet">
+    <script src="/core/ui-select-open-on.js"></script>
+
+	<!--<link href="/core/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+	<script src="/core/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>-->
+	<script src="/core/bower_components/moment/min/moment.min.js" type="text/javascript"></script>
+	<script src="/core/bower_components/angular-momentjs/angular-momentjs.js"></script>
+	<script src="/core/bower_components/angular-mask/dist/ngMask.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="/core/bower_components/animate.css/animate.min.css" />
+	<link rel="stylesheet" type="text/css" href="/core/bower_components/angular-animate.css/angular-animate.min.css" />
+	<script src="/core/bower_components/angular-animate/angular-animate.min.js" type="text/javascript"></script>
+	<link href="/core/bower_components/chosen/chosen.min.css" rel="stylesheet" type="text/css" />
+	<script src="/core/bower_components/chosen/chosen.jquery.js" type="text/javascript"></script>
+	<link href="/core/bower_components/angular-chosen-localytics/chosen-spinner.css" rel="stylesheet" type="text/css" />
+	<script src="/core/bower_components/angular-chosen-localytics/chosen.js" type="text/javascript"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfN2a6GaYXyfRiHos7S_4Pv9KnJlYns-A&libraries=geometry"></script>
+	<!-- Google Tracking Conversion -->
+	<script src="//www.googleadservices.com/pagead/conversion_async.js" async></script>
+	<script src="/core/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+	<script src="/core/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+	<link href="/core/bower_components/jquery-colorbox/example2/colorbox.css" rel="stylesheet" type="text/css" />
+	<script src="/core/bower_components/jquery-colorbox/jquery.colorbox-min.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/core/bower_components/pnotify/pnotify.core.css">
+	<link rel="stylesheet" href="/core/bower_components/pnotify/pnotify.buttons.css">
+	<script src="/core/bower_components/pnotify/pnotify.core.js"></script>
+	<script src="/core/bower_components/pnotify/pnotify.confirm.js"></script>
+	<script src="/core/bower_components/pnotify/pnotify.buttons.js"></script>
+	<script src="/core/bower_components/angular-pnotify/src/angular-pnotify.js"></script>
+	<link href="/core/bower_components/angular-toasty/dist/angular-toasty.min.css" rel="stylesheet" type="text/css" />
+	<script src="/core/bower_components/angular-toasty/dist/angular-toasty.min.js" type="text/javascript"></script>
+	<script src="/core/bower_components/ng-focus-on/ng-focus-on.min.js"></script>
+	<!-- Components -->
+	<link href="/core/ui-app-resource/css/common-ui.css" rel="stylesheet" type="text/css" />
+	<script src="/core/ui-app.js" type="text/javascript"></script>
+	<script src="/core/select2-directive.js"></script>
+	<script src="/core/dd-city-picker.js"></script>
+	<script src="/core/dd-vehicle-picker.js"></script>
+	<script src="/core/dd-vehicle-type-picker.js"></script>
+	<script src="/core/dd-carrier-type-picker.js"></script>
+    <script src="/core/dd-vehicle-condition-picker.js"></script>
+	<script src="/core/delivery-time.js"></script>
+	<script src="/core/dd-pricing.js"></script>
+	<script src="/core/date-picker.js"></script>
+	<link href="common/common.css" rel="stylesheet">
+	<script src="common/common.js"></script>
+	<script src="js/shipper.js"></script>
+	
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+{
+  "name": "direct-dispatch-api",
+  "description": "Direct Dispatch Backend",
+  "version": "1.0.0",
+  "private": true,
+  "main": "server.js",
+  "author": "Faisal Hasnain <faisal.hasnain@icloud.com>",
+  "homepage": "https://bitbucket.org/directdispatch/backend#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/directdispatch/backend.git"
+  },
+  "scripts": {
+    "start": "NODE_PATH=. node src/server.js"
+  },
+  "engines": {
+    "node": "^5.0.0"
+  },
+  "dependencies": {
+    "async": "^2.4.1",
+    "bluebird": "^3.3.4",
+    "body-parser": "^1.14.2",
+    "cheerio": "^0.19.0",
+    "co": "^4.6.0",
+    "connect-busboy": "0.0.2",
+    "cors": "^2.7.1",
+    "cron": "^1.1.0",
+    "csv-parse": "^0.1.4",
+    "ejs": "^2.3.4",
+    "eventemitter2": "^0.4.14",
+    "express": "^4.13.3",
+    "express-jwt": "^3.3.0",
+    "geolib": "^2.0.18",
+    "html-pdf": "^2.1.0",
+    "jsonwebtoken": "^5.5.0",
+    "juice": "^1.8.1",
+    "lodash": "^3.10.1",
+    "mailgun-js": "^0.7.8",
+    "moment": "^2.10.6",
+    "moment-range": "^2.2.0",
+    "mongodb": "^2.1.16",
+    "mongoose": "^4.10.2",
+    "mongoose-auto-increment": "^5.0.1",
+    "mongoose-type-email": "^1.0.5",
+    "node-edmunds-api": "0.0.1",
+    "phantomjs": "^2.1.7",
+    "request": "^2.67.0",
+    "sha1": "^1.1.1",
+    "twilio": "^2.9.1"
+  }
+}

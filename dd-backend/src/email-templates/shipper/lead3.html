@@ -1,0 +1,303 @@
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <p class="lead">Finally! No more broker fees!</p>
+                        <p class="lead">Thank You Direct Dispatch!</p>
+                        <p>With Direct Dispatch consumers can ship their vehicles without being forced to use shipping brokers! Brokers charge hefty fees and are notorious for causing major delays during the transport. Direct Dispatch connects you directly to the car carrier saving you hundreds of dollars. In addition, our streamlined web-based system allows for an unparalleled customer service experience.</p>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <table class="button">
+                            <tr>
+                                <td>
+                                    <a href="https://direct-dispatch.com/shipper/app/view-quote/<%= _id %>/<%= token %>">Setup Order Now</a>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h5>Quote # <%= _id %></h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+                        <img width="580" height="340" src="https://direct-dispatch.com/api/map-image/quote/<%= _id %>/<%= token %>/580/340/map.png">
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h5>Shipment Details</h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="container">
+    <tr>
+        <td class="wrapper last">
+
+            <table style="width: 100%" class="border">
+                <tr>
+                    <td><strong>Origin</strong></td>
+                    <td><%= origin.city %>, <%= origin.state %> <%= origin.zip %></td>
+                </tr>
+                <tr>
+                    <td><strong>Destination</strong></td>
+                    <td><%= destination.city %>, <%= destination.state %> <%= destination.zip %></td>
+                </tr>
+                <tr>
+                    <td><strong>Distance</strong></td>
+                    <td><%= distance %> miles</td>
+                </tr>
+                <tr>
+                    <td><strong>Carrier Type</strong></td>
+                    <td><%= carrierType %></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<br />
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h5>Vehicles Information</h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="container">
+    <tr>
+        <td class="wrapper last">
+
+            <table style="width: 100%" class="border">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Model</th>
+                        <th>Type</th>
+                        <th>Condition</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% vehicles.forEach(function (vehicle, index) { %>
+                    <tr>
+                        <td><%= index+1 %></td>
+                        <td><%= vehicle.make %> <%= vehicle.model %></td>
+                        <td><%= vehicle.type %></td>
+                        <td><%= vehicle.condition %></td>
+                        <td><%= utils.getVehiclePrice(vehicle) ? '$' + utils.getVehiclePrice(vehicle) : 'N/A' %></td>
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<br />
+
+<% if (utils.getTotalPrice(vehicles)) { %>
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h5>Total Package</h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<table class="container">
+    <tr>
+        <td class="wrapper last">
+
+            <table style="width: 100%" class="border">
+                <thead>
+                    <tr>
+                        <th>Standard Price</th>
+                        <th>Expedited Price</th>
+                        <th>Rush Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Upto 7 days</td>
+                        <td>Upto 5 days</td>
+                        <td>Within 2 days</td>
+                    </tr>
+                    <tr>
+                        <td><strong>$<%= utils.getTotalPrice(vehicles, utils.packagePrices['Standard']) %></strong></td>
+                        <td><strong>$<%= utils.getTotalPrice(vehicles, utils.packagePrices['Expedited']) %></strong></td>
+                        <td><strong>$<%= utils.getTotalPrice(vehicles, utils.packagePrices['Rush']) %></strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<% } else { %>
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+                        <h5>
+
+                            Call <a href="tel:(800)918-5520">(800) 918-5520</a> to get Quote
+
+                        </h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<% } %>
+<br />
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+                        <p><strong>It’s time you discover the Direct Dispatch Advantage.</strong></p>
+                        <ul>
+                            <li><strong>No broker fee.</strong> Most shipping websites use brokers, which means hefty broker fees. With Direct Dispatch, we connect you directly to the transport carrier. Saving you money.</li>
+                            <li><strong>Track your shipment online.</strong> Our innovative web-based shipping platform allows you to track your vehicle throughout the entire process. We’ll keep you connected during the initial reservation booking, vehicle pick-up, during transit and shipment delivery.</li>
+                            <li><strong>24/7 customer service.</strong> With Direct Dispatch, communication is key. A knowledgeable Direct Dispatch Customer Service Representative is readily available to take your calls 24 hrs a day, 7 days a week.</li>
+                            <li><strong>15,000+ auto transport carriers.</strong> With over 15,000 auto transport carriers in the Direct Dispatch Network, you can rest assured that we’ll connect you with a carrier, and at the best price possible.</li>
+                            <li><strong>Mobile app.</strong> With our convenient mobile app, you’ll be able to stay connected even when you’re on the go.</li>
+                            <li><strong>Instant alerts of pickup and delivery.</strong> We’ll send you important shipment notifications via text or email alerting you of your shipment status.</li>
+                        </ul>
+                        <p>It’s never been easier, more secure and cost-effective to ship your vehicles.</p>
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <table class="button">
+                            <tr>
+                                <td>
+                                    <a href="https://direct-dispatch.com/shipper/app/view-quote/<%= _id %>/<%= token %>">Setup Order Now</a>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Best Car Shipping Company | Auto Transportation | Auto Transporters – Direct Dispatch</title>
+    <meta name="description" content="Welcome to Direct Dispatch - your source for reliable, efficient and affordable car shipping services. We offer a range of vehicle transportation solutions and transport rates without any brokerage fees or credit card payments. Visit us and learn more on how we revolutionize auto transport companies!">
+    <meta name="author" content="Direct Dispatch" /> <!-- Stylesheets -->
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/style.css" rel="stylesheet">
+<link href="/css/animate.min.css" rel="stylesheet">
+<!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700' rel='stylesheet'>-->
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+
+    <!-- HEADER ========== -->
+
+    <!-- TOP BAR ========== -->
+    <section id="portal-links">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-md-12">
+    				<ul class="list-inline">
+    					<li class="toll-free"><img src="/img/tollfree.png" alt=""> <a href="tel:(800) 918-5520">Toll Free: (800) 918-5520</a></li>
+    					<li class="email"><img src="/img/email.png" alt=""> <a href="mailto:info@direct-dispatch.com">info@direct-dispatch.com</a></li>
+    				</ul>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+    <!-- END TOP BAR ========== -->
+
+    <!-- PORTAL LINKS ========== -->
+    <section id="dealer-portal">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-md-12 text-right">
+    				<ul class="list-inline">
+    					<li><a href="/dealer/app" class="dealer-text">Dealer Portal</a></li>
+    					<li>/</li>
+    					<li><a href="/carrier" class="dealer-text">Carrier Portal</a></li>
+    				</ul>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+    <!-- END PORTAL LINKS ========== -->
+
+    <!-- NAVBAR ========== -->
+    <div class="navbar navbar-default" role="navigation">
+    	<div class="container zero-pad-right">
+    		<div class="navbar-header">
+    			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+    			<a class="" href="/">
+    				<div class="logo">
+    					<img src="/img/DDlogo.jpg" class="img-responsive hidden-xs" alt="DIRECT DISPATCH" />
+    					<img src="/img/DDlogo-mobile.png" class="img-responsive visible-xs" alt="DIRECT DISPATCH" />
+    				</div>
+    			</a>
+    		</div>
+    		<div class="navbar-collapse collapse navbar-right">
+    			<ul class="nav navbar-nav">
+    				<li><a id="navWhy" href="/why-us">Why Us</a></li>
+    				<li><a id="navHowWorks" href="/how-it-works">How it Works</a></li>
+    				<li><a id="navEnterprise" href="/enterprise">Enterprise</a></li>
+    			</ul>
+    		</div>
+    	</div>
+    </div>
+    <!-- END NAVBAR ========== -->
+
+    <!-- END HEADER ========== -->
+
+    <!-- TRANSPORTATION ========== -->
+    <section id="transportation" class="transportation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 wow zoomIn">
+                    <h1>Simplifying Auto Transportation</h1>
+                    <h2>Revolutionizing How Automobiles are Shipped</h2>
+                    <div id="quoteForm" ng-app="ddGetQuoteApp" ng-controller="InstantQuoteController as ctrl">
+                        <h3>Get An Instant Quote</h3>
+                        <form name="quote" novalidate role="form" ng-submit="quote.$valid && saveLead()">
+                            <fieldset ng-disabled="progress">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group" ng-class="{ 'has-error': submitted && !lead.origin }">
+                                            <label>Pick Up Location:</label>
+                                            <dd-city-picker ng-model="lead.origin" open-on="'focusOrigin'" on-select="focusDest"></dd-city-picker>
+                                            <span class="help-block" ng-show="submitted && !lead.origin">Pick Up Location is required</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group" ng-class="{ 'has-error': submitted && !lead.destination }">
+                                            <label>Drop Off Location:</label>
+                                            <dd-city-picker ng-model="lead.destination" open-on="'focusDest'" on-select="focusCarrierType"></dd-city-picker>
+                                            <span class="help-block" ng-show="submitted && !lead.destination">Drop Off Location is required</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group" ng-class="{ 'has-error': submitted && !lead.carrierType }">
+                                            <label for="carrierType">Carrier Type:</label>
+                                            <dd-carrier-type-picker ng-model="lead.carrierType" open-on="'focusCarrierType'" on-select="focusVehicleModel"></dd-carrier-type-picker>
+                                            <span class="help-block" ng-show="submitted && !lead.carrierType">Carrier Type is required</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="vehicle-info" ng-show="lead.origin && lead.destination && lead.carrierType">
+                                    <h4>VEHICLES INFO</h4>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group" ng-class="{ 'has-error': submitted && !lead.vehicles[0].model }">
+                                                <label>Make / Model:</label>
+                                                <dd-vehicle-picker ng-model="lead.vehicles[0].model" open-on="'focusVehicleModel'" on-select="focusVehicleType"></dd-vehicle-picker>
+                                                <span class="help-block" ng-show="submitted && !lead.vehicles[0].model">Vehicle Make / Model is required</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group" ng-class="{ 'has-error': submitted && !lead.vehicles[0].type }">
+                                                <label>Type:</label>
+                                                <dd-vehicle-type-picker ng-model="lead.vehicles[0].type" open-on="'focusVehicleType'" on-select="focusVehicleCondition"></dd-vehicle-type-picker>
+                                                <span class="help-block" ng-show="submitted && !lead.vehicles[0].type">Vehicle Type is required</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group" ng-class="{ 'has-error': submitted && !lead.vehicles[0].condition }">
+                                                <label>Condition:</label>
+                                                <dd-vehicle-condition-picker ng-model="lead.vehicles[0].condition" open-on="'focusVehiclecondition'" on-select="focusEmail"></dd-vehicle-condition-picker>
+                                                <span class="help-block" ng-show="submitted && !lead.vehicles[0].condition">Vehicle Condition is required</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" ng-show="lead.origin && lead.destination && lead.carrierType && lead.vehicles[0].model && lead.vehicles[0].type && lead.vehicles[0].condition">
+                                    <div class="col-md-4">
+                                        <div class="form-group" ng-class="{ 'has-error': submitted && quote.email.$invalid }">
+                                            <label for="email">Email:</label>
+                                            <input id="email" name="email" type="email" ng-model="lead.email" class="form-control" placeholder="Enter Email" focus-on="focusEmail" required>
+                                            <span class="help-block" ng-show="submitted && quote.email.$error.required">Email is required</span>
+                                            <span class="help-block" ng-show="submitted && quote.email.$error.email">Invalid Email</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group" ng-class="{ 'has-error': submitted && quote.phone.$invalid }">
+                                            <label for="phone">Phone:</label>
+                                            <input id="phone" name="phone" type="text" mask="(999) 999-9999" clean="true" class="form-control" ng-model="lead.phone"
+                                                required placeholder="Enter Phone">
+                                            <span class="help-block" ng-show="submitted && quote.phone.$error.required">Phone is required</span>
+                                            <span class="help-block" ng-show="submitted && !quote.phone.$error.required && quote.phone.$invalid">Phone is invalid</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="">&nbsp;</label>
+                                        <button type="submit" class="btn btn-primary calculate-btn" ng-click="submitted = true">
+                                    <span class="glyphicon glyphicon-usd"></span> Calculate Price
+                                    </button>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <input ng-hide="lead.origin && lead.destination && lead.carrierType" type="button" class="btn btn-warning btn-quote" value="Get Started!" ng-click="focusOrigin()" />
+                                </div>
+                            </fieldset>
+                            <div class="col-md-offset-4 col-md-4 topmargin">
+                                <div ng-show="progress"><i class="fa fa-2x fa-spinner fa-spin" style="color: white"></i></div>
+                                <div ng-show="error" class="alert alert-danger">{{error}}</div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END TRANSPORTATION ========== -->
+
+    <!-- HOW IT WORKS ========== -->
+    <section id="how-it-works">
+        <div class="container text-center">
+            <h1>HOW IT WORKS</h1>
+            <h2>Direct Dispatch connects you directly with a carrier without the need for a broker or their fee.</h2>
+            <div class="row">
+                <div class="col-md-5 col-sm-12">
+                    <div class="clearfix">
+                        <img src="/img/request-price.png" alt="Request Price" class="gap-right wow fadeInRight" />
+                        <h3>Request Price</h3>
+                        <p>Utilizing Direct Dispatch's proprietary software to input a few basic parameters you will be presented
+                            instantly with the final cost for your transport order. </p>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-5 col-sm-12">
+                    <div class="clearfix">
+                        <img src="/img/confirm.png" alt="Confirm Order" class="gap-right wow fadeInRight" />
+                        <h3>Confirm Order</h3>
+                        <p>Upon placing your ship request, an order confirmation will be issued confirming your order is being
+                            processed by one of Direct Dispatch's logistics coordinators. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 col-sm-12">
+                    <div class="clearfix">
+                        <img src="/img/carrier.png" alt="Carrier" class="gap-right wow fadeInRight" />
+                        <h3>Carrier Confirmation</h3>
+                        <p>Direct Dispatch takes the time to approve every driver within their network assuring you that communication
+                            during every step of the way will be timely and clear.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-5 col-sm-12">
+                    <div class="clearfix">
+                        <img src="/img/peace.png" alt="Peace of Mind" class="gap-right wow fadeInRight" />
+                        <h3>Transport Delivered</h3>
+                        <p>Relax while your automobile is shipped safely, reliably and affordably to it's final destination
+                            by a qualified Direct Dispatch Carrier. </p>
+                    </div>
+                </div>
+            </div>
+            <h2 class="marginbot">Our simple to use interface walks you through each step from start to finish.</h2>
+            <button type="button" class="btn btn-warning btn-started triggerBtn">Get Started!</button>
+        </div>
+    </section>
+    <!-- END HOW IT WORKS ========== -->
+
+    <!-- MOVING VEHICLES ========== -->
+    <section id="moving-vehicles">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>MOVING VEHICLES, REDEFINING SHIPPING</h1>
+                    <p>When it comes to car transport companies, reliability, affordability and convenience are three of the
+                        most crucial factors for success. At Direct Dispatch, we have mastered them all! By offering the
+                        cheapest auto transport quotes and transport rates, we have established ourselves as the best car
+                        shipping company in the business. With no broker fee and direct payment options to qualified carriers
+                        and automobile transporters, we provide a range of services that help you connect with auto shippers
+                        directly – allowing you to transport without brokers and save up on your costs. Be it transporting
+                        cars, trucks or any other vehicles, we offer quotes that guarantee the best car delivery services.
+                        Our auto shipping services include real-time reporting, allowing you to track your automobile transporters
+                        at any stage of the shipment process. For all your vehicle transportation needs without any hassle
+                        and well within your budget; feel free to browse through our customized quotes section!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END MOVING VEHICLES ========== -->
+
+    <!-- WHAT WE OFFER ========== -->
+    <section id="what-we-offer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <h1 class="heading">What we offer</h1>
+                    <ul>
+                        <li>Instant alerts for pick up and delivery</li>
+                        <li>No broker fee</li>
+                        <li>Track your shipment order online</li>
+                        <li>Over 1,500 auto transport carriers</li>
+                    </ul>
+                </div>
+                <div class="col-md-1">&nbsp;</div>
+                <div class="col-md-6">
+                    <h1 class="heading">WHAT OUR CUSTOMERS SAY?</h1>
+                    <div class="content">
+
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <!-- INDICATORS ========== -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="5"></li>
+                            </ol>
+                            <!-- WRAPPER FOR SLIDES ========== -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <span>It took less than 5 minutes to fill out the form on their website and get a quote. The driver dropped the car at my front door a few days later, on time with no hassle. Paid exactly what I was quoted. Highly Recommended.</span>
+                                    <div class="clearfix">
+                                        <img src="/img/smf.png" class="img-circle" alt="Steve McFerrin" width="58" height="58">                                        <strong>Steve McFerrin</strong>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <span>Delivered as promised! Door to door delivery. Great customer service. This was our first experience shipping a vehicle and it was flawless. The driver was friendly and trustworthy. Thanks Direct dispatch!</span>
+                                    <div class="clearfix">
+                                        <img src="/img/cpg.png" class="img-circle" alt="Steve McFerrin" width="58" height="58">                                        <strong>Cathy Perdue-Green</strong>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <span>I had my 2006 jetta deliver on time. Other transport companies toll me that it was impossible because the low amount of money Direct Dispach charge me to deliver my car.I just want to recommande Direct Dispatch for their Excellente service. Thanks</span>
+                                    <div class="clearfix">
+                                        <img src="/img/steve.png" class="img-circle" alt="Steve McFerrin" width="58" height="58">                                        <strong>Juan J Valdivia</strong>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <span>Highly Recommended ... Needed to relocate A.S.A.P from New York City to Coral Springs Florida and ship my vehicle. Submitted my on-line request the night of 7/2 and was called the morning of 7/3 with verification of driver and pickup that same day. Thank you Direct Dispatch for your excellent customer service and response time.</span>
+                                    <div class="clearfix">
+                                        <img src="/img/swr.png" class="img-circle" alt="Steve McFerrin" width="58" height="58">                                        <strong>Steiner Woodruffe</strong>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <span>This company is amazing. Very professional and prompt. These guys plain out get the job done. Call them for transport needs. No broker fees. Thanks direct dispatch.</span>
+                                    <div class="clearfix">
+                                        <img src="/img/tc.png" class="img-circle" alt="Steve McFerrin" width="58" height="58">                                        <strong>Terrance Campbell</strong>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <span>Outstanding service from FL to IN! I will use Direct Dispatch for all of my car shipping needs from now on!</span>
+                                    <div class="clearfix">
+                                        <img src="/img/db.png" class="img-circle" alt="Steve McFerrin" width="58" height="58">                                        <strong>Darius Butler</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END WRAPPER FOR SLIDES ========== -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END WHAT WE OFFER ========== -->
+
+    <!-- WHO WE SERVICE ========== -->
+    <section id="who-we-service">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="heading">Who We Service</h1>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#"><img src="/img/manheim.png" class="img-responsive wow zoomIn" alt="" /></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="/img/IAA.png" class="img-responsive wow zoomIn" alt="" /></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="/img/autotrader.png" class="img-responsive wow zoomIn" alt="" /></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="/img/banett-jackson.png" class="img-responsive wow zoomIn" alt="" /></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="/img/cars.png" class="img-responsive wow zoomIn" alt="" /></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="/img/ebay.png" class="img-responsive wow zoomIn" alt="" /></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END WHO WE SERVICE ========== -->
+
+    <!-- Get Quote Now ========== -->
+    <section id="get-a-quote" class="transportation get-a-quote">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 wow zoomIn">
+                    <h1>Instant Pricing On Safe & Reliable Auto Transport</h1>
+                    <h2>Get Started to experience why our customers depend on Direct Dispatch</h2>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-warning triggerBtn">Get Started Now!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END Get Quote Now ========== -->
+
+    <!-- FOOTER ========== -->
+    <section id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="list-inline social">
+                        <li>
+                            <a href="mailto:info@direct-dispatch.com"><img src="/img/mail.png" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/DirectDispatch"><img src="/img/facebook.png" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/channel/UCDsYnz8_kswM3DI26DgLmHQ"><img src="/img/youtube.png" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/DDispatch"><img src="/img/twitter.png" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/company/direct-dispatch"><img src="/img/linkedin.png" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-12">
+                    <ul class="list-inline">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/why-us">Why Us</a></li>
+                        <li><a href="/how-it-works">How it Works</a></li>
+                        <li><a href="/shipper/app/track-order">Track Order</a></li>
+                        <!--<li><a href="#about">Features</a></li>
+                        <li><a href="#about">Facts</a></li>-->
+                        <li><a href="/enterprise">Enterprise</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/terms" target="_blank">Terms of Use</a></li>
+                        <li><a href="/privacy" target="_blank">Privacy Policy</a></li>
+                    </ul>
+                    <p class="text-center">Copyrights &copy; 2016 All Rights Reserved by Direct Dispatch Inc.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END FOOTER ========== --> <!-- JQUERY/BOOTSTRAP  ========== -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/scripts.js"></script>
+<!-- ANIMATION PLUGIN  ========== -->
+<script src="/js/wow.min.js"></script>
+<script>
+    new WOW().init();
+</script>
+
+<!-- Google Anatyics Start -->
+<script>
+(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+  function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+e.src='//www.google-analytics.com/analytics.js';
+r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+ga('create','UA-52029517-2');ga('send','pageview');
+</script>
+<!-- Google Anatyics End -->
+
+<!-- detect outdated browser script -->
+<script> 
+    var $buoop = {c:2}; 
+    function $buo_f(){ 
+    var e = document.createElement("script"); 
+    e.src = "//browser-update.org/update.min.js"; 
+    document.body.appendChild(e);
+    };
+    try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+    catch(e){window.attachEvent("onload", $buo_f)}
+</script>
+<!-- // detect outdated browser script -->
+
+<!-- Start of LiveChat (www.livechatinc.com) code -->
+<script type="text/javascript">
+window.__lc = window.__lc || {};
+window.__lc.license = 7030281;
+(function() {
+  var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+  lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+})();
+</script>
+<!-- End of LiveChat code -->
+
+<!-- Start of Google Code for Remarketing Tag -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 934403991;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/934403991/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+<!-- End of Google Code for Remarketing Tag -->
+
+    <script src="/core/bower_components/angular/angular.min.js"></script>
+    <link href="/core/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <script src="/core/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <link href="/core/bower_components/angular-ui-select/dist/select.min.css" rel="stylesheet">
+    <script src="/core/bower_components/angular-ui-select/dist/select.min.js"></script>
+    <link href="/core/ui-select-fix.css" rel="stylesheet">
+    <script src="/core/ui-select-open-on.js"></script>
+    <script src="/core/bower_components/angular-mask/dist/ngMask.min.js"></script>
+    <script src="/core/bower_components/ng-focus-on/ng-focus-on.min.js"></script>
+    <script src="/core/dd-city-picker.js"></script>
+    <script src="/core/dd-vehicle-picker.js"></script>
+    <script src="/core/dd-vehicle-type-picker.js"></script>
+    <script src="/core/dd-carrier-type-picker.js"></script>
+    <script src="/core/dd-vehicle-condition-picker.js"></script>
+    <script src="/js/get-quote.js"></script>
+    <script async type="text/javascript" src="//www.googleadservices.com/pagead/conversion_async.js" charset="utf-8"></script>
+
+</body>
+
+</html>

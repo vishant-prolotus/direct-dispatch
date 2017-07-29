@@ -1,0 +1,47 @@
+{
+  "authors": [
+    "Faisal Hasnain <faisalhasnain90@gmail.com>"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-animate": "~1.4.8",
+    "angular-bootstrap": "~1.0.3",
+    "angular-bootstrap-select": "~0.0.5",
+    "angular-pnotify": "~0.0.6",
+    "angular-route": "~1.4.8",
+    "bootstrap": "~3.3.6",
+    "bootstrap-datepicker": "~1.6.0",
+    "font-awesome": "~4.5.0",
+    "jquery": "~2.2.0",
+    "lodash": "~4.0.0",
+    "select2": "~4.0.1",
+    "angular-animate.css": "~1.0.1",
+    "jquery-colorbox": "~1.6.3",
+    "angular-toasty": "~1.0.4",
+    "angular-momentjs": "~0.2.2",
+    "angular-chosen-localytics": "~1.0.7",
+    "angular-strap": "~2.3.6",
+    "angular-mask": "~3.0.16",
+    "angular-sanitize": "~1.4.8",
+    "ng-inline-edit": "~0.7.0",
+    "Chart.js": "~2.1.4",
+    "angular-ui-select": "~0.19.1",
+    "angular-mobile-detect": "*",
+    "ng-focus-on": "~0.2.2"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "libs",
+    "test",
+    "tests"
+  ],
+  "main": "index.html",
+  "name": "direct-dispatch",
+  "private": true,
+  "version": "1.0.0",
+  "resolutions": {
+    "angular-ui-select": "~0.19.1"
+  }
+}

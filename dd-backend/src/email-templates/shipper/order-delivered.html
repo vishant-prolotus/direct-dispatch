@@ -1,0 +1,452 @@
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h4>Dear <%= shipper.name %></h4>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <p class="lead">Congratulations! Your vehicle has been delivered successfully.</p>
+                        <p>We wanted to let you know that your vehicle(s) is safe &amp; sound! Motor carrier has delivered your shipment to its destination.</p>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h5>Order # <%= _id %></h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <img width="580" height="340" src="https://direct-dispatch.com/api/map-image/order/<%= _id %>/<%= token %>/580/340/map.png">
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h5>Driver Information</h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="container">
+    <tr>
+        <td class="wrapper last">
+
+            <table style="width: 100%" class="border">
+                <tr>
+                    <td><strong>Name</strong></td>
+                    <td><%= carrier.name %></td>
+                </tr>
+                <tr>
+                    <td><strong>Phone</strong></td>
+                    <td><a href="tel:<%= carrier.phone %>"><%= carrier.phone %></a></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<br />
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h5>Shipper Information</h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="container">
+    <tr>
+        <td class="wrapper last">
+
+            <table style="width: 100%" class="border">
+                <% if (shipper.type == 'Company') { %>
+                <tr>
+                    <td><strong>Company</strong></td>
+                    <td><%= shipper.company %></td>
+                </tr>
+                <% } %>
+                <tr>
+                    <td><strong>Name</strong></td>
+                    <td><%= shipper.name %></td>
+                </tr>
+                <tr>
+                    <td><strong>Email</strong></td>
+                    <td><%= shipper.email %></td>
+                </tr>
+                <tr>
+                    <td><strong>Phone</strong></td>
+                    <td><%= shipper.phone %></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<br />
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h5>Pickup Details</h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="container">
+    <tr>
+        <td class="wrapper last">
+
+            <table style="width: 100%" class="border">
+                <% if (pickup.addressType == 'Company') { %>
+                <tr>
+                    <td><strong>Company</strong></td>
+                    <td><%= pickup.company %></td>
+                </tr>
+                <% } %>
+                <tr>
+                    <td><strong>Address</strong></td>
+                    <td><%= pickup.address %></td>
+                </tr>
+                <tr>
+                    <td><strong>City</strong></td>
+                    <td><%= pickup.location.city %>, <%= pickup.location.state %> <%= pickup.location.zip %></td>
+                </tr>
+                <% if (pickup.contactType == 'Other') { %>
+                <tr>
+                    <td><strong>Contact Name</strong></td>
+                    <td><%= pickup.name %></td>
+                </tr>
+                <tr>
+                    <td><strong>Contact Phone</strong></td>
+                    <td><%= pickup.phone %></td>
+                </tr>
+                <% } %>
+                <% if (pickup.fromAuction) { %>
+                <tr>
+                    <td><strong>Buyer Number</strong></td>
+                    <td><%= pickup.buyerNumber %></td>
+                </tr>
+                <% } %>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<br />
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h5>Delivery Details</h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="container">
+    <tr>
+        <td class="wrapper last">
+
+            <table style="width: 100%" class="border">
+                <% if (delivery.addressType == 'Company') { %>
+                <tr>
+                    <td><strong>Company</strong></td>
+                    <td><%= delivery.company %></td>
+                </tr>
+                <% } %>
+                <tr>
+                    <td><strong>Address</strong></td>
+                    <td><%= delivery.address %></td>
+                </tr>
+                <tr>
+                    <td><strong>City</strong></td>
+                    <td><%= delivery.location.city %>, <%= delivery.location.state %> <%= delivery.location.zip %></td>
+                </tr>
+                <% if (delivery.contactType == 'Other') { %>
+                <tr>
+                    <td><strong>Contact Name</strong></td>
+                    <td><%= delivery.name %></td>
+                </tr>
+                <tr>
+                    <td><strong>Contact Phone</strong></td>
+                    <td><%= delivery.phone %></td>
+                </tr>
+                <% } %>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<br />
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h5>Shipment Details</h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="container">
+    <tr>
+        <td class="wrapper last">
+
+            <table style="width: 100%" class="border">
+                <tr>
+                    <td><strong>Carrier Type</strong></td>
+                    <td><%= shipment.carrierType %></td>
+                </tr>
+                <tr>
+                    <td><strong>Package</strong></td>
+                    <td><%= package %></td>
+                </tr>
+                <tr>
+                    <td><strong>Payment Method</strong></td>
+                    <td><%= shipment.paymentMethod %></td>
+                </tr>
+                <% if (shipment.notes) { %>
+                <tr>
+                    <td><strong>Notes</strong></td>
+                    <td><%= shipment.notes %></td>
+                </tr>
+                <% } %>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<br />
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h5>Vehicles Information</h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="container">
+    <tr>
+        <td class="wrapper last">
+
+            <table style="width: 100%" class="border">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Model</th>
+                        <th>Condition</th>
+                        <% if (pickup.fromAuction) { %>
+                        <th>VIN</th>
+                        <th>LOT#</th>
+                        <% } %>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% vehicles.forEach(function (vehicle, index) { %>
+                    <tr>
+                        <td><%= index+1 %></td>
+                        <td><%= vehicle.make %> <%= vehicle.model %> <%= vehicle.year %></td>
+                        <td><%= vehicle.condition %></td>
+                        <% if (pickup.fromAuction) { %>
+                        <td><%= vehicle.vin %></td>
+                        <td><%= vehicle.lot %></td>
+                        <% } %>
+                        <td>$<%= utils.getVehiclePrice(vehicle) %></td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<br />
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h5>
+                            Total: $<%= utils.getTotalPrice(vehicles, packagePrice) %>
+                        </h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="three">
+                <tr>
+                    <td>
+
+                        <table class="button">
+                            <tr>
+                                <td>
+                                    <a href="https://direct-dispatch.com/shipper/app/view-order/<%= _id %>/<%= token %>">View Order</a>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+                        <p>Communication is key. Our web-based shipping platform was developed to ensure our customers are kept informed. You'll receive a phone call, email or text message during each phase of the shipping process. You'll know when your carrier is headed your way, when he's in-transit and the expected delivery window. It's as easy as that. No brokers. No headaches. A carrier who you can trust.</p>
+                        <p>Please don't hesitate to contact us if you have any questions regarding your order.</p>
+                        <p>Thank you for choosing Direct Dispatch!</p>
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>

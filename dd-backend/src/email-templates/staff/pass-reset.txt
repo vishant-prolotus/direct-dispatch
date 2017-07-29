@@ -1,0 +1,3 @@
+Hello <%- name %>
+
+Reset your account password at https://direct-dispatch.com/staff/new-pass/<%= _id %>/<%= passResetToken %>

@@ -1,0 +1,301 @@
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <p>Did you know that the majority of transported vehicles are booked using a costly broker? It’s time you take a look into the hidden world of brokers.</p>
+                        <p>Using broker in any industry is a time of the past!</p>
+                        <ul>
+                            <li>Travel Agent(Broker) Replaced with Expedia,Travelocity</li>
+                            <li>Real Estate Agent(Broker) Replaced with AirBnB</li>
+                            <li>Stock Brokers(Broker) Replaced with Etrade,Scotttrade</li>
+                            <li>Transport Brokers(Broker) Replaced with <strong>DIRECT DISPATCH</strong></li>
+                        </ul>
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <table class="button">
+                            <tr>
+                                <td>
+                                    <a href="https://direct-dispatch.com/shipper/app/view-quote/<%= _id %>/<%= token %>">Setup Order Now</a>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h5>Quote # <%= _id %></h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+                        <img width="580" height="340" src="https://direct-dispatch.com/api/map-image/quote/<%= _id %>/<%= token %>/580/340/map.png">
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h5>Shipment Details</h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="container">
+    <tr>
+        <td class="wrapper last">
+
+            <table style="width: 100%" class="border">
+                <tr>
+                    <td><strong>Origin</strong></td>
+                    <td><%= origin.city %>, <%= origin.state %> <%= origin.zip %></td>
+                </tr>
+                <tr>
+                    <td><strong>Destination</strong></td>
+                    <td><%= destination.city %>, <%= destination.state %> <%= destination.zip %></td>
+                </tr>
+                <tr>
+                    <td><strong>Distance</strong></td>
+                    <td><%= distance %> miles</td>
+                </tr>
+                <tr>
+                    <td><strong>Carrier Type</strong></td>
+                    <td><%= carrierType %></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<br />
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h5>Vehicles Information</h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="container">
+    <tr>
+        <td class="wrapper last">
+
+            <table style="width: 100%" class="border">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Model</th>
+                        <th>Type</th>
+                        <th>Condition</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% vehicles.forEach(function (vehicle, index) { %>
+                    <tr>
+                        <td><%= index+1 %></td>
+                        <td><%= vehicle.make %> <%= vehicle.model %></td>
+                        <td><%= vehicle.type %></td>
+                        <td><%= vehicle.condition %></td>
+                        <td><%= utils.getVehiclePrice(vehicle) ? '$' + utils.getVehiclePrice(vehicle) : 'N/A' %></td>
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<br />
+
+<% if (utils.getTotalPrice(vehicles)) { %>
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h5>Total Package</h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<table class="container">
+    <tr>
+        <td class="wrapper last">
+
+            <table style="width: 100%" class="border">
+                <thead>
+                    <tr>
+                        <th>Standard Price</th>
+                        <th>Expedited Price</th>
+                        <th>Rush Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Upto 7 days</td>
+                        <td>Upto 5 days</td>
+                        <td>Within 2 days</td>
+                    </tr>
+                    <tr>
+                        <td><strong>$<%= utils.getTotalPrice(vehicles, utils.packagePrices['Standard']) %></strong></td>
+                        <td><strong>$<%= utils.getTotalPrice(vehicles, utils.packagePrices['Expedited']) %></strong></td>
+                        <td><strong>$<%= utils.getTotalPrice(vehicles, utils.packagePrices['Rush']) %></strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<% } else { %>
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+                        <h5>
+
+                            Call <a href="tel:(800)918-5520">(800) 918-5520</a> to get Quote
+
+                        </h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<% } %>
+<br />
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+                        <p>Goodbye Brokers, Hello Innovation</p>
+                        <img src="https://direct-dispatch.com/email/nobrokers.png">
+                        <br>
+                        <p>Direct Dispatch focuses solely on shipping automobiles, motorcycles, RV’s and boats. We pride ourselves on sourcing and retaining only the best carriers who meet our high standards. Every carrier in the extensive Direct Dispatch Network has met our Direct Dispatch Seal of Approval.</p>
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <table class="button">
+                            <tr>
+                                <td>
+                                    <a href="https://direct-dispatch.com/shipper/app/view-quote/<%= _id %>/<%= token %>">Setup Order Now</a>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>

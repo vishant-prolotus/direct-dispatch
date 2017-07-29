@@ -1,0 +1,16 @@
+Load # <%= _id %>
+
+Origin: <%= pickup.location.city %>, <%= pickup.location.state %> <%= pickup.location.city %>
+Destination: <%= delivery.location.city %>, <%= delivery.location.state %> <%= delivery.location.zip %>
+Distance: <%= distance %> miles
+Pickup Dates: <%= pickup.dates %>
+CarrierType: <%= shipment.carrierType %>
+
+Vehicles
+<% vehicles.forEach(function (vehicle, index) { %>
+<%= index+1 %>. <%= vehicle.make %> <%= vehicle.model %> <%= vehicle.year %>, Type: <%= vehicle.type %>, Condition: <%= vehicle.condition %>, Price: $<%= utils.getVehiclePrice(vehicle, true) %>
+<% }); %>
+
+Total: $<%= utils.getTotalPrice(vehicles, packagePrice, true) %>
+
+Please siginin to request the load: https://direct-dispatch.com/carrier/app/signin

@@ -1,0 +1,5 @@
+/* Fix for UI-Select width: 10px issue https://github.com/angular-ui/ui-select/issues/533 */
+
+.ui-select-container input.ui-select-search {
+    width: 100% !important;
+}

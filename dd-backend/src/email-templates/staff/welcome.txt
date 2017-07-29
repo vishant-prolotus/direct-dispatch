@@ -1,0 +1,6 @@
+Name: <%- name %>
+Role: <%- role %>
+Email: <%- email %>
+Password: <%- password %>
+
+Sign in at https://direct-dispatch.com/staff/signin

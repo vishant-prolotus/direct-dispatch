@@ -1,0 +1,30 @@
+{
+    "db": "direct-dispatch",
+    "services": {
+        "main": "3000",
+        "emailScheduling": "3001"
+    },
+    "host": "http://direct-dispatch.dev",
+    "jwtkey": "dbang@1441",
+    "mailgun": {
+        "apiKey": "key-70ac7bb5a82223e9a90c3309279ebe76",
+        "domain": "direct-dispatch.com"
+    },
+    "googleMaps": {
+        "url": "https://maps.googleapis.com/maps/api",
+        "apiKey": "AIzaSyAwxJL70-dBpXk_WaDTcPuKFk5w6hnpjSo"
+    },
+    "twilio": {
+        "accountSid": "ACb37ea4bbfa71826afe809013d090ef07",
+        "authToken": "418777f46cf56ddaf3dbdb5a95d6b3df",
+        "fromNumber": "+16503628687"
+    },
+    "authorizeDotNet": {
+        "url": "https://apitest.authorize.net/xml/v1/request.api",
+        "apiLogin": "92QL4fDe6L4",
+        "transactionKey": "9JY73sW26DgYr56M"
+    },
+    "edmundsAPIKey": "tdh8rzasfaqq7rbec3mbam26",
+    "host": "https://direct-dispatch.com",
+    "sendEmail": true
+}

@@ -1,0 +1,14 @@
+Hello <%- name %>!
+
+We warmly welcome you to join <%- company %> on Direct Dispatch as <%- role %>
+
+Login Email: <%- email %>
+Your Phone: <%- phone %>
+
+Accept invitation by clicking the following link:
+https://direct-dispatch.com/carrier/app/user-invitation/<%- _id %>/<%- token %>
+
+
+------------------------------------------------------------------------------------------
+
+Copyright Direct Dispatch. All Rights reserved.

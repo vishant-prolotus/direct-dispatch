@@ -1,0 +1,318 @@
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <p>Your receiving this email because your probably fed up with all the calls . As you begin to place this order do yourself one favor, everyone that calls you from now on tell them Direct Dispatch has already picked up vehicle!</p>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="container">
+    <tr>
+        <td class="wrapper last">
+
+            <table style="width: 100%" class="border">
+                <thead>
+                    <tr>
+                        <th>TRANSPORT BROKER</th>
+                        <th>DIRECT DISPATCH</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BROKER FEE (YES)</td>
+                        <td>BROKER FEE (NO)</td>
+                    </tr>
+                    <tr>
+                        <td>Personal Dispatch (NO)</td>
+                        <td>Personal Dispatch (YES)</td>
+                    </tr>
+                    <tr>
+                        <td>Tracking Vehicle (NO)</td>
+                        <td>Tracking Vehicle (YES)</td>
+                    </tr>
+                    <tr>
+                        <td>Verified Carriers (NO)</td>
+                        <td>Verified Carriers (YES)</td>
+                    </tr>
+                    <tr>
+                        <td>Cancellation Fee (YES)</td>
+                        <td>Cancellation Fee (NO)</td>
+                    </tr>
+                    <tr>
+                        <td>Service Fee (YES)</td>
+                        <td>Service Fee (NO)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <table class="button">
+                            <tr>
+                                <td>
+                                    <a href="https://direct-dispatch.com/shipper/app/view-quote/<%= _id %>/<%= token %>">Setup Order Now</a>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h5>Quote # <%= _id %></h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+                        <img width="580" height="340" src="https://direct-dispatch.com/api/map-image/quote/<%= _id %>/<%= token %>/580/340/map.png">
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h5>Shipment Details</h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="container">
+    <tr>
+        <td class="wrapper last">
+
+            <table style="width: 100%" class="border">
+                <tr>
+                    <td><strong>Origin</strong></td>
+                    <td><%= origin.city %>, <%= origin.state %> <%= origin.zip %></td>
+                </tr>
+                <tr>
+                    <td><strong>Destination</strong></td>
+                    <td><%= destination.city %>, <%= destination.state %> <%= destination.zip %></td>
+                </tr>
+                <tr>
+                    <td><strong>Distance</strong></td>
+                    <td><%= distance %> miles</td>
+                </tr>
+                <tr>
+                    <td><strong>Carrier Type</strong></td>
+                    <td><%= carrierType %></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<br />
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h5>Vehicles Information</h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<table class="container">
+    <tr>
+        <td class="wrapper last">
+
+            <table style="width: 100%" class="border">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Model</th>
+                        <th>Type</th>
+                        <th>Condition</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% vehicles.forEach(function (vehicle, index) { %>
+                    <tr>
+                        <td><%= index+1 %></td>
+                        <td><%= vehicle.make %> <%= vehicle.model %></td>
+                        <td><%= vehicle.type %></td>
+                        <td><%= vehicle.condition %></td>
+                        <td><%= utils.getVehiclePrice(vehicle) ? '$' + utils.getVehiclePrice(vehicle) : 'N/A' %></td>
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<br />
+
+<% if (utils.getTotalPrice(vehicles)) { %>
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <h5>Total Package</h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<table class="container">
+    <tr>
+        <td class="wrapper last">
+
+            <table style="width: 100%" class="border">
+                <thead>
+                    <tr>
+                        <th>Standard Price</th>
+                        <th>Expedited Price</th>
+                        <th>Rush Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Upto 7 days</td>
+                        <td>Upto 5 days</td>
+                        <td>Within 2 days</td>
+                    </tr>
+                    <tr>
+                        <td><strong>$<%= utils.getTotalPrice(vehicles, utils.packagePrices['Standard']) %></strong></td>
+                        <td><strong>$<%= utils.getTotalPrice(vehicles, utils.packagePrices['Expedited']) %></strong></td>
+                        <td><strong>$<%= utils.getTotalPrice(vehicles, utils.packagePrices['Rush']) %></strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<% } else { %>
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+                        <h5>
+
+                            Call <a href="tel:(800)918-5520">(800) 918-5520</a> to get Quote
+
+                        </h5>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<% } %>
+<br />
+
+<table class="row">
+    <tr>
+        <td class="wrapper last">
+
+            <table class="twelve columns">
+                <tr>
+                    <td>
+
+                        <table class="button">
+                            <tr>
+                                <td>
+                                    <a href="https://direct-dispatch.com/shipper/app/view-quote/<%= _id %>/<%= token %>">Setup Order Now</a>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+                    <td class="expander"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
